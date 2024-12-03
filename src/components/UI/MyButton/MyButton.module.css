@@ -1,0 +1,23 @@
+
+.button, .neon_blue {
+    transition: .5s;
+    width: 150px;
+    color: #07a;
+    border-radius: 5px;
+    cursor:pointer;
+    font-size: 16px;
+    background: transparent;
+}
+
+.button{
+    padding: 10px 20px;
+    border: 2px solid #07a;
+    width: 100%;
+    box-shadow: inset 0px 0px 15px 0px rgba(36,142,255,0.5);
+}
+.button:hover{
+    box-shadow: inset 0px 0px 15px 4px rgba(36,142,255,1);
+}
+.neon_blue:hover{
+    box-shadow: 0px 0px 20px 6px rgba(36,142,255,1);
+}

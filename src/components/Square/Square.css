@@ -1,0 +1,37 @@
+.square, .neon_blue {
+    transition: .5s;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    cursor:pointer;
+    border: 2px solid #07a;
+    background: transparent;
+}
+.square{
+    box-shadow: inset 0px 0px 15px 0px rgba(36,142,255,0.5);
+}
+.neon_blue{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}
+.neon_blue:hover{
+    box-shadow: 0px 0px 20px 6px rgba(36,142,255,1);
+}
+.square:hover{
+    box-shadow: inset 0px 0px 20px 6px rgba(36,142,255,1);
+}
+img {
+    animation:add .5s linear ;
+    width: 100px;
+}
+@keyframes add {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
