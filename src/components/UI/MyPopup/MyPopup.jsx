@@ -1,6 +1,6 @@
 import React from 'react';
 import './MyPopup.css'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {modalWithChampActiveAC} from "../../../redux/store";
 
 const MyPopup = ({children}) => {

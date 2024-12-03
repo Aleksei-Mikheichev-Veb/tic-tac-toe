@@ -1,6 +1,6 @@
 import './App.css';
 import Board from "./components/Board/Board";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {checkWinner} from "./utils/checkWinner";
 import {getScore} from "./redux/asyncActions/getScore";
@@ -14,21 +14,22 @@ function App() {
     const state = useSelector(state => state)
     const dispatch = useDispatch()
 
+
     // Получим счет на пернвой отрисовке
     useEffect(()=>{
-        console.log('in useEffect')
         dispatch(getScore())
     },[])
+
+
     // Проверяем есть ли победитель после сделанного шага
     useEffect(()=>{
-        console.log('in useEffect2')
         const winner = checkWinner(state.squares)
-        console.log(winner)
         if(winner){
-            console.log('in winner')
             dispatch(sendGame(winner))
         }
     },[state.squares])
+
+
     // Начать новую игру
     const startNewGame = () => {
         dispatch(resetGameAC())
@@ -45,7 +46,6 @@ function App() {
                 <p>0</p>
             </div>
         }
-        <div style={{color: 'red'}}> типизировать, прибраться в компонентах. попап с победителем сделать не через animation  </div>
       <Board />
         {state.finishedGame && <div className={'box'}><MyButton onClick={startNewGame}>Сыграть еще</MyButton></div>}
         {state.modalActive && <MyPopup>Победил {state.champ}</MyPopup>}

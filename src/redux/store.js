@@ -55,8 +55,11 @@ const Reducer = (state= initialState, action) => {
             newSquares.squares = Array(9).fill(null)
             return {...state,squares:Array(9).fill(null) }
         }
+        // Установим модалке active
         case MODAL_WITH_CHAMP_ACTIVE: return {...state, modalActive: !state.modalActive}
+        // Значение обознчающее, что текущая игра закончена, но новая еще не начата
         case FINISHED_GAME: return {...state, finishedGame: !state.finishedGame}
+        // Установим победителя текущей игры
         case SET_CHAMP: return {...state, champ: action.payload}
         default: return state
     }

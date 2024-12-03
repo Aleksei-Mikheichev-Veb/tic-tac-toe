@@ -1,11 +1,11 @@
 import {Api} from "../../api/api";
-import {finishedGameAC, modalWithChampActiveAC, resetGameAC, setChamp} from "../store";
+import {finishedGameAC, modalWithChampActiveAC, setChamp} from "../store";
 import {getScore} from "./getScore";
 import {getDate} from "../../utils/getDate";
 
 export const sendGame = (winner) => {
     return async dispatch => {
-        // Определим победиля в переменную для отображения его в объекте
+        // Определим победиля в переменную для отображения его в отправляемом объекте
         let winnerX = false;
         if(winner === 'x'){winnerX = true}
 
@@ -18,15 +18,13 @@ export const sendGame = (winner) => {
             circle: !winnerX,
             date: dateString
             }
-        console.log(finishedGame)
-        // Отправляем запрос
-        // const response = await Api.addNewGame(finishedGame)
-        // console.log(response)
+        // Отправляем результат игры
+        const response = await Api.addNewGame(finishedGame)
+        console.log(response)
         // Перезагружаем поле и обновляем счет
-        console.log('in api')
         dispatch(finishedGameAC())
-        dispatch(modalWithChampActiveAC())
         dispatch(setChamp(winner))
+        dispatch(modalWithChampActiveAC())
         dispatch(getScore())
     }
 }

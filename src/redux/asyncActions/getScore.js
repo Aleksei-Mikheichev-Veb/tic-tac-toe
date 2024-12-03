@@ -13,7 +13,6 @@ export const getScore =  () => {
             dispatch(setApiErrorMessageAC(arrayGames))
             return
         }
-        console.log(arrayGames)
         for (let scoreGame of arrayGames) {
             if(scoreGame.circle){
                 score.zero += 1
