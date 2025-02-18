@@ -3,10 +3,10 @@
 ## Установка
 
 # Клонировать репозиторий
-git clone <url репозитория>
+git clone https://github.com/Aleksei-Mikheichev-Veb/tic-tac-toe.git
 
 # Перейти в директорию проекта
-cd <название проекта>
+cd tic-tac-toe
 
 # Установить зависимости
 npm install
