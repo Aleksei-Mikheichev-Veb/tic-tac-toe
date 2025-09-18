@@ -5,7 +5,7 @@
 
 ## ✨ Демо
 
-- 🔗 [Онлайн-версия]()
+- 🔗 [Онлайн-версия](https://tic-tac-toe-ruddy-eight-62.vercel.app/)
 
 🚀 Функционал
 
@@ -23,7 +23,7 @@
 
 🖼️ Скриншот
 
-![Timeline Events Screenshot]()
+![Cross zero Screenshot](https://github.com/user-attachments/assets/a9b561d2-c9da-4917-bf90-42a6ccc51d29)
 
 🛠️ Технологии
 
