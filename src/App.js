@@ -16,17 +16,19 @@ function App() {
 
 
     // Получим счет на пернвой отрисовке
-    useEffect(()=>{
-        dispatch(getScore())
-    },[])
+    // useEffect(()=>{
+    //     dispatch(getScore())
+    // },[state.scoreGames])
 
 
     // Проверяем есть ли победитель после сделанного шага
     useEffect(()=>{
         const winner = checkWinner(state.squares)
         if(winner){
+            // console.log(winner)
             dispatch(sendGame(winner))
         }
+
     },[state.squares])
 
 
@@ -38,14 +40,15 @@ function App() {
   return (
     <div className="App">
         <h1>Счет игры</h1>
-        {state.apiErrorMessage
-        ? <div className='error'>Извините при запросе счета произошла ошибка: {state.apiErrorMessage}</div>
-        :  <div className="score">
+        {/*{state.apiErrorMessage*/}
+        {/*? <div className='error'>Извините при запросе счета произошла ошибка: {state.apiErrorMessage}</div>*/}
+        {/*:*/}
+            <div className="score">
                 <p>X</p>
                 <div>{state.scoreGames.scoreCross} : {state.scoreGames.scoreZero}</div>
                 <p>0</p>
             </div>
-        }
+        {/*}*/}
       <Board />
         {state.finishedGame && <div className={'box'}><MyButton onClick={startNewGame}>Сыграть еще</MyButton></div>}
         {state.modalActive && <MyPopup>Победил {state.champ}</MyPopup>}

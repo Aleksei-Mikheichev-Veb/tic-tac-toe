@@ -1,13 +1,13 @@
 import {Api} from "../../api/api";
-import {finishedGameAC, modalWithChampActiveAC, setChamp} from "../store";
+import {finishedGameAC, incrementCross, incrementZero, modalWithChampActiveAC, setChamp} from "../store";
 import {getScore} from "./getScore";
 import {getDate} from "../../utils/getDate";
 
 export const sendGame = (winner) => {
     return async dispatch => {
         // Определим победиля в переменную для отображения его в отправляемом объекте
-        let winnerX = false;
-        if(winner === 'x'){winnerX = true}
+        let winnerX = true;
+        if(winner === 'o'){winnerX = false}
 
         // Установим текущую дату в нужном формате
         const dateString = getDate()
@@ -26,5 +26,13 @@ export const sendGame = (winner) => {
         dispatch(setChamp(winner))
         dispatch(modalWithChampActiveAC())
         dispatch(getScore())
+        if(winner === 'x'){
+            console.log(1)
+            dispatch(incrementCross())
+        }else{
+            console.log(2)
+            dispatch(incrementZero())
+        }
+
     }
 }

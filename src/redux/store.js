@@ -22,6 +22,8 @@ const RESET_GAME = 'RESET_GAME';
 const FINISHED_GAME = 'FINISHED_GAME';
 const MODAL_WITH_CHAMP_ACTIVE = 'MODAL_WITH_CHAMP_ACTIVE';
 const SET_CHAMP = 'SET_CHAMP';
+const INCREMENT_CROSS_SCORE = 'INCREMENT_CROSS_SCORE';
+const INCREMENT_ZERO_SCORE = 'INCREMENT_ZERO_SCORE';
 
 
 const Reducer = (state= initialState, action) => {
@@ -38,6 +40,25 @@ const Reducer = (state= initialState, action) => {
                     ...state.scoreGames, scoreCross:action.payload.scoreCross, scoreZero: action.payload.scoreZero}
             }
         }
+
+        case INCREMENT_CROSS_SCORE:
+            console.log('cross')
+            return {
+                ...state,
+                scoreGames: {
+                    ...state.scoreGames,
+                    scoreCross: state.scoreGames.scoreCross + 1,
+                },
+            };
+        case INCREMENT_ZERO_SCORE:
+            console.log('zero')
+            return {
+                ...state,
+                scoreGames: {
+                    ...state.scoreGames,
+                    scoreZero: state.scoreGames.scoreZero + 1,
+                },
+            };
         // Добавим ход
         case ADD_MADE_MOVE: {
             const nextMove = state.nextX ? 'x' : 'o';
@@ -46,9 +67,9 @@ const Reducer = (state= initialState, action) => {
             return newSquares
         }
         // Установим текс ошибки если она есть
-        case SET_API_ERROR_MESSAGE: {
-            return {...state, apiErrorMessage: action.payload}
-        }
+        // case SET_API_ERROR_MESSAGE: {
+        //     return {...state, apiErrorMessage: action.payload}
+        // }
         // Обновим поля доски
         case RESET_GAME :{
             const newSquares = structuredClone(state)
@@ -73,5 +94,7 @@ export const resetGameAC = () => ({type:RESET_GAME })
 export const finishedGameAC = () => ({type:FINISHED_GAME })
 export const modalWithChampActiveAC = () => ({type:MODAL_WITH_CHAMP_ACTIVE })
 export const setChamp = (champ) => ({type:SET_CHAMP, payload:champ })
+export const incrementCross = () => ({type:INCREMENT_CROSS_SCORE })
+export const incrementZero = () => ({type:INCREMENT_ZERO_SCORE })
 
 export const store = createStore(Reducer, composeWithDevTools(applyMiddleware(thunk)))
