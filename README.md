@@ -23,7 +23,7 @@
 
 🖼️ Скриншот
 
-![Cross zero Screenshot](https://github.com/user-attachments/assets/a9b561d2-c9da-4917-bf90-42a6ccc51d29)
+![Cross zero Screenshot](https://github.com/user-attachments/assets/6000978f-6b70-4c72-8d7f-7e82048ed422)
 
 🛠️ Технологии
 
