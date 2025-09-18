@@ -55,3 +55,5 @@ npm install
 npm start
 
 
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
+
